@@ -17,7 +17,7 @@ import {
     Paper,
     Grid,
 } from "@mui/material";
-
+import { Link as LinkRoute } from "react-router-dom";
 interface ProjectItemProps {
     image: string;
     title: string;
@@ -145,18 +145,26 @@ const ProjectItem = ({
                         gap: "16px",
                     }}
                 >
-                    {links.map(({ name, icon, link }, index) => (
-                        <Link
-                            key={index}
-                            href={link}
-                            target="_blank"
-                            underline="none"
-                        >
-                            <CustomBtn variant="text" endIcon={icon}>
-                                {name}
-                            </CustomBtn>
-                        </Link>
-                    ))}
+                    {links.map(({ name, icon, link }, index) =>
+                        index !== links.length - 1 ? (
+                            <Link
+                                key={index}
+                                href={link}
+                                target="_blank"
+                                underline="none"
+                            >
+                                <CustomBtn variant="text" endIcon={icon}>
+                                    {name}
+                                </CustomBtn>
+                            </Link>
+                        ) : (
+                            <LinkRoute to={"/pages/profile"}>
+                                <CustomBtn variant="text" endIcon={icon}>
+                                    {name}
+                                </CustomBtn>
+                            </LinkRoute>
+                        )
+                    )}
                 </Box>
             </CustomCardContent>
         </CustomCard>

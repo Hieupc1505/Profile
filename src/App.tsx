@@ -27,13 +27,9 @@ function App() {
                             element={<Authentication />}
                         />
                     </Route>
-                    <Route
-                        path="/"
-                        element={<Navigate to={"/pages/portfolio"} replace />}
-                    />
+                    <Route path="/" element={<Portfolio />} />
                     <Route path="/pages/besnik" element={<Besnik />} />
                     <Route path="/pages/profile" element={<Profile />} />
-                    <Route path="/pages/portfolio" element={<Portfolio />} />
                 </Routes>
             </BrowserRouter>
         </ThemeProvider>
