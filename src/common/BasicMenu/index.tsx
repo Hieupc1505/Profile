@@ -14,13 +14,7 @@ interface MenuBasic {
     menuItems: MenuItem[];
 }
 
-const BasicMenu = ({
-    open,
-    handleClose,
-    anchorEl,
-    handleClick,
-    menuItems,
-}: MenuBasic) => {
+const BasicMenu = ({ open, handleClose, anchorEl, menuItems }: MenuBasic) => {
     return (
         <div>
             <Menu

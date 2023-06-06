@@ -6,17 +6,9 @@ import { modalStyles } from "./styles";
 // import { Input } from "@mui/material";
 import CommonBtn from "~/common/Button";
 // import { DataForm } from "~pages/authentication/components/newUserModal";
-import { Formik, Field, Form, ErrorMessage, FormikProps } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { userProps } from "~pages/authentication";
-
-interface DataForm {
-    userId: string;
-    email: string;
-    phoneNumber: string | number;
-    terms: boolean;
-    gender: "male" | "female";
-}
 
 interface BasicModalProps {
     children: React.ReactNode;
