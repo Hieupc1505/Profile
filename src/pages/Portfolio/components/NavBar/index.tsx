@@ -16,7 +16,7 @@ import ElevatorIcon from "@mui/icons-material/Elevator";
 import { Link as LinkRoute } from "react-router-dom";
 
 type Anchor = "top" | "left" | "bottom" | "right";
-const pages = ["Home", "About", "Projects", "Contact", "Profile"];
+const pages = ["Home", "About", "Projects", "Contact", "MY CV"];
 interface IMobileMenuProps {
     right: boolean;
 }
