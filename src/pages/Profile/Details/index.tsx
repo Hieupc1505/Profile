@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import {
     Box,
@@ -108,84 +108,93 @@ const Details = () => {
             <CustomDivider />
             <Box>
                 <CustomTitle>Kinh nghiệm làm việc</CustomTitle>
-                {DetailData.map(({ main, title, lists, links, timer }) => (
-                    <>
-                        <Box
-                            sx={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "center",
-                            }}
-                        >
-                            <CustomTextDark>{main}</CustomTextDark>
-                            <Typography
-                                variant="body2"
-                                color={profileTheme.palette.info.main}
+                {DetailData.map(
+                    ({ main, title, lists, links, timer }, index) => (
+                        <Fragment key={index}>
+                            <Box
                                 sx={{
-                                    fontStyle: "italic",
+                                    display: "flex",
+                                    justifyContent: "space-between",
+                                    alignItems: "center",
                                 }}
                             >
-                                {timer}
-                            </Typography>
-                        </Box>
-                        <Typography variant="body2">{title}</Typography>
-                        <List>
-                            {lists.map((list) => (
-                                <ListItem>
-                                    <ListItemText
-                                        primary={`- ${list.main}`}
-                                        secondary={
-                                            list.contents && (
-                                                <React.Fragment>
-                                                    {list.contents.map(
-                                                        (content) => (
-                                                            <Typography
-                                                                component={
-                                                                    "span"
-                                                                }
-                                                            >
-                                                                {content}
-                                                            </Typography>
-                                                        )
-                                                    )}
-                                                </React.Fragment>
-                                            )
-                                        }
-                                    />
-                                </ListItem>
-                            ))}
-
-                            <ListItem
-                                sx={{
-                                    flexDirection: "column",
-                                    alignItems: "flex-start",
-                                }}
-                            >
-                                {links.map(({ name, link }) => (
-                                    <ListItemText
-                                        primary={
-                                            <Typography component={"span"}>
-                                                {`Link ${name}:`}
-                                                <a
-                                                    style={{
-                                                        marginLeft: "5px",
-                                                        textDecoration: "none",
-                                                        color: profileTheme
-                                                            .palette.info.main,
-                                                    }}
-                                                    href={link}
-                                                    target="_blank"
-                                                >
-                                                    {link}
-                                                </a>
-                                            </Typography>
-                                        }
-                                    />
+                                <CustomTextDark>{main}</CustomTextDark>
+                                <Typography
+                                    variant="body2"
+                                    color={profileTheme.palette.info.main}
+                                    sx={{
+                                        fontStyle: "italic",
+                                    }}
+                                >
+                                    {timer}
+                                </Typography>
+                            </Box>
+                            <Typography variant="body2">{title}</Typography>
+                            <List>
+                                {lists.map((list, index) => (
+                                    <ListItem key={index}>
+                                        <ListItemText
+                                            primary={`- ${list.main}`}
+                                            secondary={
+                                                list.contents && (
+                                                    <React.Fragment>
+                                                        {list.contents.map(
+                                                            (
+                                                                content,
+                                                                index
+                                                            ) => (
+                                                                <Typography
+                                                                    key={index}
+                                                                    component={
+                                                                        "span"
+                                                                    }
+                                                                >
+                                                                    {content}
+                                                                </Typography>
+                                                            )
+                                                        )}
+                                                    </React.Fragment>
+                                                )
+                                            }
+                                        />
+                                    </ListItem>
                                 ))}
-                            </ListItem>
-                        </List>
-                    </>
-                ))}
+
+                                <ListItem
+                                    sx={{
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                    }}
+                                >
+                                    {links.map(({ name, link }, index) => (
+                                        <ListItemText
+                                            key={index}
+                                            primary={
+                                                <Typography component={"span"}>
+                                                    {`Link ${name}:`}
+                                                    <a
+                                                        style={{
+                                                            marginLeft: "5px",
+                                                            textDecoration:
+                                                                "none",
+                                                            color: profileTheme
+                                                                .palette.info
+                                                                .main,
+                                                        }}
+                                                        href={link}
+                                                        target="_blank"
+                                                    >
+                                                        {link}
+                                                    </a>
+                                                </Typography>
+                                            }
+                                        />
+                                    ))}
+                                </ListItem>
+                            </List>
+                        </Fragment>
+                    )
+                )}
             </Box>
         </CustomBox>
     );

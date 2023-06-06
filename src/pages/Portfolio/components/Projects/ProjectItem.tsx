@@ -16,8 +16,10 @@ import {
     Stack,
     Paper,
     Grid,
+    LinkProps,
 } from "@mui/material";
 import { Link as LinkRoute } from "react-router-dom";
+
 interface ProjectItemProps {
     image: string;
     title: string;
@@ -25,6 +27,7 @@ interface ProjectItemProps {
     tools: Array<string>;
     links: { name: string; icon: React.ReactNode; link?: string }[];
     reverse?: boolean;
+    typeLink?: boolean;
 }
 
 const ProjectItem = ({
@@ -34,6 +37,7 @@ const ProjectItem = ({
     tools,
     links,
     reverse = false,
+    typeLink = false,
 }: ProjectItemProps) => {
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -146,7 +150,7 @@ const ProjectItem = ({
                     }}
                 >
                     {links.map(({ name, icon, link }, index) =>
-                        index !== links.length - 1 ? (
+                        typeLink === false ? (
                             <Link
                                 key={index}
                                 href={link}
@@ -158,7 +162,7 @@ const ProjectItem = ({
                                 </CustomBtn>
                             </Link>
                         ) : (
-                            <LinkRoute to={"/pages/profile"}>
+                            <LinkRoute key={index} to={"/pages/besnik"}>
                                 <CustomBtn variant="text" endIcon={icon}>
                                     {name}
                                 </CustomBtn>

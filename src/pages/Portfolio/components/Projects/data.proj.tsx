@@ -3,6 +3,9 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import shopv2Img from "/Portfolio/shopv2.jpg";
 import sportv2Img from "/Portfolio/sports.jpg";
 import besnikImg from "/Portfolio/besnik.jpg";
+import { Link } from "react-router-dom";
+import { Link as LinkUI } from "@mui/material";
+
 export const projectsData = [
     {
         image: shopv2Img,
@@ -58,5 +61,6 @@ export const projectsData = [
                 link: "/pages/besnik",
             },
         ],
+        typeLink: true,
     },
 ];

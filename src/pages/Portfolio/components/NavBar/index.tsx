@@ -13,6 +13,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import ArticleIcon from "@mui/icons-material/Article";
 import ElevatorIcon from "@mui/icons-material/Elevator";
+import { Link as LinkRoute } from "react-router-dom";
 
 type Anchor = "top" | "left" | "bottom" | "right";
 const pages = ["Home", "About", "Projects", "Contact", "Profile"];
@@ -98,19 +99,21 @@ export default function Navbar() {
     return (
         <Box>
             <CustomBox>
-                {pages.map((page, index) => (
-                    <Link
-                        key={index}
-                        href={
-                            index === pages.length - 1
-                                ? `/pages/profile`
-                                : `#${page.toLocaleLowerCase()}`
-                        }
-                        underline="none"
-                    >
-                        <CustomButton>{page}</CustomButton>
-                    </Link>
-                ))}
+                {pages.map((page, index) =>
+                    index !== pages.length - 1 ? (
+                        <Link
+                            key={index}
+                            href={`#${page.toLocaleLowerCase()}`}
+                            underline="none"
+                        >
+                            <CustomButton>{page}</CustomButton>
+                        </Link>
+                    ) : (
+                        <LinkRoute key={index} to={"/pages/profile"}>
+                            <CustomButton>{page}</CustomButton>
+                        </LinkRoute>
+                    )
+                )}
             </CustomBox>
             <CustomMenu>
                 <MenuIcon
