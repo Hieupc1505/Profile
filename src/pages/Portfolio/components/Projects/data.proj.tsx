@@ -1,6 +1,6 @@
 import GitHubIcon from "@mui/icons-material/GitHub";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import shopv2Img from "/Portfolio/shop.png";
+import shopv2Img from "/Portfolio/shop.webp";
 import sportv2Img from "/Portfolio/sports.jpg";
 import Landing1 from "/Portfolio/landing1.png";
 import Page from "/Portfolio/page.png";
