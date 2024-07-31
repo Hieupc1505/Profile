@@ -1,76 +1,45 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+// import CommonButton from "../CommonButton/CommonButton";
+import CommonButton from "../Button";
 import { modalStyles } from "./styles";
-// import { Input } from "@mui/material";
-import CommonBtn from "~/common/Button";
-// import { DataForm } from "~pages/authentication/components/newUserModal";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
-import { userProps } from "~pages/authentication";
 
-interface BasicModalProps {
-    children: React.ReactNode;
+interface BasicProps {
     open: boolean;
     onClose: () => void;
-    title: string | number;
-    subTitle?: string | number;
-    initialValues: userProps;
-    validationSchema?: Yup.ObjectSchema<{
-        userId: string;
-        email: string;
-        phoneNumber?: string;
-    }>;
-    handleSubmit: (data: userProps, props: any) => void;
+    title: string;
+    subTitle?: string;
+    content: ReactNode;
+    onSubmit: () => void;
 }
 
-export default function BasicModal({
-    children,
+const BasicModal = ({
     open,
     onClose,
     title,
     subTitle,
-    initialValues,
-    validationSchema,
-    handleSubmit,
-}: // onSubmit,
-BasicModalProps) {
+    content,
+    onSubmit,
+}: BasicProps) => {
     return (
-        <div>
-            <Modal open={open} onClose={onClose}>
-                <Box sx={modalStyles.wrapper}>
-                    <Typography
-                        id="modal-modal-title"
-                        variant="h6"
-                        component="h2"
-                    >
-                        {title}
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        {subTitle}
-                    </Typography>
-                    <Formik
-                        initialValues={initialValues}
-                        validationSchema={validationSchema}
-                        onSubmit={handleSubmit}
-                    >
-                        {(props) => (
-                            <Form>
-                                {children}
-                                <Box sx={modalStyles.buttons}>
-                                    <CommonBtn
-                                        type="submit"
-                                        variant="contained"
-                                    >
-                                        Submit
-                                    </CommonBtn>
-                                </Box>
-                            </Form>
-                        )}
-                    </Formik>
+        <Modal open={open} onClose={onClose}>
+            <Box sx={modalStyles.wrapper}>
+                <Typography variant="h6" component="h2">
+                    {title}
+                </Typography>
+                <Typography sx={{ mt: 2 }}>{subTitle}</Typography>
+                {content}
+                <Box sx={modalStyles.buttons}>
+                    <CommonButton variant="contained" onClick={onSubmit}>
+                        Submit
+                    </CommonButton>
+                    <CommonButton onClick={onClose}>Cancel</CommonButton>
                 </Box>
-            </Modal>
-        </div>
+            </Box>
+        </Modal>
     );
-}
+};
+
+export default BasicModal;
