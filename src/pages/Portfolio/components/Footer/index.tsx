@@ -30,7 +30,7 @@ const Footer = () => {
                         color="white"
                         sx={{ marginBottom: 0 }}
                     >
-                        Copyright © 2023. All rights are reserved
+                        Copyright © 2018 WebMakers. All rights reserved
                     </Typography>
 
                     <Stack

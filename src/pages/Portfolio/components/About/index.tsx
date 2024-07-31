@@ -86,9 +86,15 @@ const About = () => {
     return (
         <Container maxWidth="lg">
             <BoxWrap id="about">
-                <CustomAboutMedia>
+                <CustomAboutMedia
+                    sx={{
+                        filter: `drop-shadow(0 24px 48px rgba(145 158 171 / .3))`,
+                    }}
+                >
                     <Avatar
-                        src={workIcon}
+                        src={
+                            "https://cdn.vectorstock.com/i/1000v/52/20/teamwork-online-home-office-team-communication-vector-32375220.jpg"
+                        }
                         alt="workTable"
                         sx={{
                             height: "100%",
@@ -97,6 +103,16 @@ const About = () => {
                         }}
                         variant="square"
                     />
+                    {/* <Avatar
+                        src={workIcon}
+                        alt="workTable"
+                        sx={{
+                            height: "100%",
+                            width: "83%",
+                            borderRadius: "17px",
+                        }}
+                        variant="square"
+                    /> */}
                     <BoxRotate>
                         <Avatar
                             variant="square"

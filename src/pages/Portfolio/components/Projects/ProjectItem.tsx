@@ -106,6 +106,7 @@ const ProjectItem = ({
         background: "#fff",
         gap: "5px",
         fontSize: "17px",
+        textTransform: "capitalize",
         "&:hover": {
             backgroundColor: "transparent",
             color: theme.palette.primary.main,
