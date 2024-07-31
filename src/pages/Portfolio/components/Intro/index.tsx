@@ -9,12 +9,14 @@ import {
     Avatar,
     AvatarProps,
     Link,
+    Button,
 } from "@mui/material";
 import { themePort } from "../../theme.Portfolio";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import avatar from "/Portfolio/avatar.jpg";
 import Skills from "../Skills";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 const Intro = () => {
     const { palette } = themePort;
     const CustomTitle = styled("h1")(({ theme }) => ({
@@ -29,8 +31,8 @@ const Intro = () => {
     }));
 
     const CustomAvatar = styled(Avatar)<AvatarProps>(({ theme }) => ({
-        height: "344px",
-        width: "344px",
+        height: "480px",
+        width: "480px",
         borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%",
         border: "3px solid #2d2e32",
         animation: "morph 8s ease-in-out infinite",
@@ -118,6 +120,10 @@ const Intro = () => {
                 minHeight: "100vh",
                 backgroundColor: "#e6e6e6b8",
                 // marginTop: "24px",
+                background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),url(https://zone-ui.vercel.app/assets/background/overlay_1.jpg)`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center center",
             }}
         >
             <Container maxWidth="lg">
@@ -125,7 +131,7 @@ const Intro = () => {
                     <GridContainer container>
                         <Grid
                             item
-                            lg={5}
+                            lg={6}
                             xs={12}
                             sx={{
                                 display: "flex",
@@ -134,11 +140,17 @@ const Intro = () => {
                                 justifyContent: "center",
                             }}
                         >
-                            <CustomAvatar src={avatar} alt="avatar" />
+                            {/* <CustomAvatar src={avatar} alt="avatar" /> */}
+                            <CustomAvatar
+                                src={
+                                    "https://zone-ui.vercel.app/assets/images/home/home_hero.png"
+                                }
+                                alt="avatar"
+                            />
                         </Grid>
                         <GridContent
                             item
-                            lg={7}
+                            lg={6}
                             xs={12}
                             sx={{
                                 display: "flex",
@@ -151,9 +163,10 @@ const Intro = () => {
                                     Full-Stack WEB DEVELOPER 👋
                                 </CustomTitle>
                                 <CustomIntro>
-                                    Xin chào, tôi là Văn Hiệu. Một Full-Stack
-                                    Web Developer trong tương lai, rất vui vì
-                                    bạn đã ghé thăm. 📍
+                                    Chào mừng đến với WebMakers! Chúng tôi là
+                                    đội ngũ chuyên gia thiết kế website, luôn
+                                    sẵn sàng mang đến cho bạn những giải pháp
+                                    tối ưu nhất cho doanh nghiệp của bạn. 📍
                                 </CustomIntro>
                                 <Box color={themePort.palette.textBold.main}>
                                     <Link
@@ -174,6 +187,27 @@ const Intro = () => {
                                         <GitHubIcon fontSize="large" />
                                     </Link>
                                 </Box>
+                                <Button
+                                    sx={{
+                                        borderColor: "currentColor",
+                                        boxShadow: "none",
+                                        color: "#FFFFFF",
+                                        backgroundColor: "#212B36",
+                                        height: "48px",
+                                        padding: "8px 22px",
+                                        borderRadius: "8px",
+                                        fontSize: "15px",
+                                        paddingLeft: "16px",
+                                        paddingRight: "16px",
+                                        textTransform: "capitalize",
+                                        "&:hover": {
+                                            background: "#454F5B",
+                                        },
+                                    }}
+                                    endIcon={<OpenInNewIcon />}
+                                >
+                                    Liên Hệ Ngay
+                                </Button>
                             </CustomBoxContent>
                         </GridContent>
 

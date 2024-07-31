@@ -15,6 +15,7 @@ export interface userProps {
     gender: "male" | "female";
     terms: boolean;
 }
+
 const Authentication = () => {
     const { cardStyles, gridWrapperStyles } = authenStyle;
     const [open, setOpen] = useState<boolean>(false);
@@ -99,7 +100,7 @@ const Authentication = () => {
             </>
         );
     };
-    console.log(searchResults);
+
     return (
         <GridWrapper styles={gridWrapperStyles}>
             <BasicCard header={getHeader()} content={getContent()} />
@@ -107,7 +108,7 @@ const Authentication = () => {
             <NewUserModal
                 open={open}
                 onClose={() => setOpen(false)}
-                addUser={addUser}
+                addNewUser={addUser}
             />
         </GridWrapper>
     );
